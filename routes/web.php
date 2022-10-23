@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 
 
@@ -25,3 +25,6 @@ Route::resource('/servicios', App\Http\Controllers\ServicioController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+Route::get('/admin/services', 'App\Http\Controllers\Admin\AdminServiceController@index')->name("admin.service.index");
